@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeditationApp", "MeditationApp.csproj", "{296F4C56-AD4F-865B-7615-AC26D42BA129}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{296F4C56-AD4F-865B-7615-AC26D42BA129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{296F4C56-AD4F-865B-7615-AC26D42BA129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{296F4C56-AD4F-865B-7615-AC26D42BA129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{296F4C56-AD4F-865B-7615-AC26D42BA129}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6DE4726-51F7-439A-BEAC-4C443C10F6EE}
+	EndGlobalSection
+EndGlobal
