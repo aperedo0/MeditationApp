@@ -10,6 +10,7 @@
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Azure.Core.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Azure.Identity.dll
+/Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/DotNetEnv.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Humanizer.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
@@ -40,6 +41,7 @@
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Microsoft.SqlServer.Server.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Mono.TextTemplating.dll
+/Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Sprache.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/antonioperedo/Desktop/MeditationApp/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -142,6 +144,7 @@
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/MeditationApp.csproj.CoreCompileInputs.cache
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/MeditationApp.MvcApplicationPartsAssemblyInfo.cs
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/MeditationApp.MvcApplicationPartsAssemblyInfo.cache
+/Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/MeditationApp.sourcelink.json
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/scopedcss/bundle/MeditationApp.styles.css
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/staticwebassets.build.json
 /Users/antonioperedo/Desktop/MeditationApp/obj/Debug/net9.0/staticwebassets.development.json

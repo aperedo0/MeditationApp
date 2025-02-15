@@ -7,8 +7,14 @@ using MeditationApp.Models;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
 using MeditationApp.Dtos;
+using DotNetEnv;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+Env.Load();
+
+var connectionString = Env.GetString("DB_CONNECTION_STRING");
 
 // ✅ Add database connection (Using appsettings.json directly)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
