@@ -6,7 +6,6 @@ using AutoMapper;
 using MeditationApp.Dtos;
 
 
-
 [Route("api/[controller]")]
 [ApiController]
 public class MeditationController : ControllerBase
