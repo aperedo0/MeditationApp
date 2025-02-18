@@ -1,32 +1,40 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-
 using MeditationApp.Data;
 using MeditationApp.Models;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
 using MeditationApp.Dtos;
 using DotNetEnv;
-
+using Microsoft.AspNetCore.DataProtection;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ✅ Load Environment Variables
 Env.Load();
+var connectionString = Env.GetString("DB_CONNECTION_STRING") ?? "";
 
-var connectionString = Env.GetString("DB_CONNECTION_STRING");
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new Exception("Error: DB_CONNECTION_STRING is missing in .env file.");
+}
 
-// ✅ Add database connection (Using appsettings.json directly)
+// ✅ Data Protection (Consider removing persistence if testing)
+builder.Services.AddDataProtection()
+    .SetApplicationName("MeditationApp");
+
+// ✅ Database Connection (Fix: Actually uses the .env connection string)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 // ✅ Add Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-// ✅ Add AutoMapper (Fix: Removed duplicate registration)
+// ✅ Add AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 
 // ✅ Add Controllers & Swagger
 builder.Services.AddControllers();
@@ -41,6 +49,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// ✅ Configure WebHost for External Access
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000);
+});
+
 var app = builder.Build();
 
 // ✅ Enable Swagger UI
@@ -51,9 +65,10 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; // Makes Swagger load at `/`
 });
 
-// ✅ Ensure proper security middleware
+// ✅ Middleware Setup
 app.UseHttpsRedirection();
-app.UseAuthentication();  // 🔥 Added: Authentication middleware
+app.UseRouting(); // ✅ Fix: Ensures routing works
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
@@ -61,6 +76,14 @@ app.MapControllers();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    
+    // ✅ Enable Swagger UI
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meditation API v1");
+        c.RoutePrefix = string.Empty; // Makes Swagger load at `/`
+    });
 }
 
 app.Run();

@@ -1,19 +1,34 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  azuresqledge:
-    image: mcr.microsoft.com/azure-sql-edge
-    container_name: azuresqledge
-    restart: always
-    cap_add:
-      - SYS_PTRACE
+  meditationapp:
+    build: .
+    container_name: meditation_app
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    volumes:
+      - ./:/app 
+    command: ["dotnet", "watch", "run"]
+    env_file:
+      - .env
     environment:
-      ACCEPT_EULA: "1"
-      MSSQL_SA_PASSWORD: "Testing123"
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: meditation_db
     ports:
       - "1433:1433"
+    env_file:
+      - .env
+    environment:
+      SA_PASSWORD: "${DB_PASSWORD}"
+      ACCEPT_EULA: "Y"
+      MSSQL_TCP_PORT: "1433"
+      MSSQL_PID: "Developer"
     volumes:
-      - sqlserver_data:/var/opt/mssql
-
-volumes:
-  sqlserver_data:
+    - ./mssql-data:/var/opt/mssql

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeditationApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+654001bfd1b372c7c6f693aea437715e672cb542")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1bb46d03e964cdb7e832dacb9858aa7cf5ed377")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeditationApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeditationApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
